@@ -1,0 +1,24 @@
+
+---
+
+- hosts: all
+  connection: local
+  gather_facts: false
+  vars_prompt:
+  - name: VCenter_User
+    prompt: "Enter VCenter Username"
+    private: no
+  - name: VCenter_Pass
+    prompt: "Enter VCenter Password"
+    private: yes
+  - name: snapshot_name
+    prompt: "Enter Snapshot Name"
+    private: no
+  roles:
+    - vcenter-snapshot-create
+	
+- hosts: all
+  become: yes
+  become_user: root
+  roles:
+    - patching
