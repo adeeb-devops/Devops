@@ -16,7 +16,6 @@
     private: no
   roles:
     - vcenter-snapshot-create
-	
 - hosts: all
   become: yes
   become_user: root
